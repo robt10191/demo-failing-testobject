@@ -1,0 +1,20 @@
+android 7, autowebview: true, testobject_appium_version: '1.6.0-updated-chromedriver', no xwalk -> testobject launches without exception
+
+android 7, autowebview: true, testobject_appium_version: '1.5.2-patched-chromedriver', xwalk added -> testobject exception: 'Status Code: 500 - Error while starting appium session: {"status":35,"value":{"message":"No such context found."},"sessionId":null}'
+
+android 6, autowebview: true, testobject_appium_version: '1.5.2-patched-chromedriver', xwalk added -> testobject exception: 'Status Code: 500 - Error while starting appium session: {"status":35,"value":{"message":"No such context found."},"sessionId":null}'
+
+android 6, autowebview: false, testobject_appium_version: '1.5.2-patched-chromedriver', xwalk added, explicitly set context and use config below -> testobject launches without exception, but only has 'NATIVE_APP' context available
+
+        androidDeviceSocket: 'io.ionic.starter',
+        chromeOptions: {
+            androidDeviceSocket: 'io.ionic.starter'
+        }
+
+    before: function () {
+        // this is to access webviews if available
+        let contexts = browser.contexts();
+        if (contexts.value && contexts.value[1]) {
+            browser.context(contexts.value[1]);
+        }
+    }
