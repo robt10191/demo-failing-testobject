@@ -13,13 +13,13 @@ I created this basic ionic dummy project, then added crosswalk to it, to reprodu
 
 ```bash
 $ npm install -g ionic cordova
-$ cordova platform add android
-$ cordova plugin add cordova-plugin-crosswalk-webview
-$ cordova build:prod
+$ ionic cordova platform add android
+$ ionic cordova plugin add cordova-plugin-crosswalk-webview
+$ ionic cordova build android --prod
 ```
 
 Then I uploaded the apk that is produced to TestObject.
 
-I am using WebdriverIO as a testrunner, and the config file is `/Users/rtaylor/myApp/android_testobject.js`
+I am using WebdriverIO as a testrunner, and the config file is `android_testobject.js`
 
-
+Repeating these steps without adding crosswalk to the project, the tests run fine.
