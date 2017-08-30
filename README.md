@@ -1,26 +1,25 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
-## How to use this template
+## To run the tests
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
-
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+To run the tests against the apk that is already uploaded to TestObject just run the command below
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
+$ npm install
+$ npm run e2e
 ```
+## What is this
 
-Then, to run it, cd into `myTabs` and run:
+I created this basic ionic dummy project, then added crosswalk to it, to reproduce and isolate the issues I'm having. These are the steps I took:
 
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+$ npm install -g ionic cordova
+$ cordova platform add android
+$ cordova plugin add cordova-plugin-crosswalk-webview
+$ cordova build:prod
 ```
 
-Substitute ios for android if not on a Mac.
+Then I uploaded the apk that is produced to TestObject.
+
+I am using WebdriverIO as a testrunner, and the config file is `/Users/rtaylor/myApp/android_testobject.js`
+
 
